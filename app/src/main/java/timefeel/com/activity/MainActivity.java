@@ -1,5 +1,6 @@
 package timefeel.com.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,13 +41,11 @@ import timefeel.com.R;
 import timefeel.com.adapter.MoviesAdapter;
 import timefeel.com.model.Movie;
 import timefeel.com.model.MoviesResponse;
-import timefeel.com.rest.ApiClient;
-import timefeel.com.rest.ApiInterface;
+import timefeel.com.rest.ServiceHelper;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     public String str;
-    public String result;
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String APIKEY = BuildConfig.API_KEY;
@@ -94,9 +93,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.movies);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         //recyclerView.setAdapter(null);
-        ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
-        Call<MoviesResponse> call = apiservice.getTopRatedMovies(APIKEY);
-        call.enqueue(new Callback<MoviesResponse>() {
+        // check online offline
+        // and use first level cache with retrofit
+        // second level sqlite for persistence
+        ServiceHelper.GetInstance().getTopRatedMovies(APIKEY)
+        .enqueue(new Callback<MoviesResponse>() {
 
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
