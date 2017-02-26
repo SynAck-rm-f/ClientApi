@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 
+import com.facebook.stetho.Stetho;
 
 
 public class CustomApplication extends Application {
@@ -16,7 +17,7 @@ public class CustomApplication extends Application {
         @Override
         public void onCreate() {
             super.onCreate();
-            //Stetho.initializeWithDefaults(this);
+            Stetho.initializeWithDefaults(this);
             CustomApplication.mcontext = getApplicationContext();
         }
 

@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 int StatusCode = response.code();
                 List<Movie> movies = response.body().getResults();
                 recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
-                Log.d(TAG, "Number of movies " + movies.size());
+                //Log.d(TAG, "Number of movies " + movies.size() + " -- " + "response Code " + StatusCode);
             }
 
             @Override

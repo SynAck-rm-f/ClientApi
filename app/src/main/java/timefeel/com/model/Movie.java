@@ -4,44 +4,30 @@ package timefeel.com.model;
  * Created by test on 08/01/2017.
  */
 
-import com.google.gson.annotations.SerializedName;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
-    @SerializedName("poster_path")
     private String posterPath;
-    @SerializedName("adult")
     private boolean adult;
-    @SerializedName("overview")
     private String overview;
-    @SerializedName("release_date")
     private String releaseDate;
-    @SerializedName("genre_ids")
     private List<Integer> genreIds = new ArrayList<Integer>();
-    @SerializedName("id")
     private Integer id;
-    @SerializedName("original_title")
     private String originalTitle;
-    @SerializedName("original_language")
     private String originalLanguage;
-    @SerializedName("title")
     private String title;
-    @SerializedName("backdrop_path")
     private String backdropPath;
-    @SerializedName("popularity")
     private Double popularity;
-    @SerializedName("vote_count")
     private Integer voteCount;
-    @SerializedName("video")
     private Boolean video;
-    @SerializedName("vote_average")
-    private Double voteAverage;
+    private Double vote_average;
 
     public Movie(String posterPath, boolean adult, String overview, String releaseDate, List<Integer> genreIds, Integer id,
                  String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity,
-                 Integer voteCount, Boolean video, Double voteAverage) {
+                 Integer voteCount, Boolean video, Double vote_average) {
         this.posterPath = posterPath;
         this.adult = adult;
         this.overview = overview;
@@ -55,7 +41,7 @@ public class Movie {
         this.popularity = popularity;
         this.voteCount = voteCount;
         this.video = video;
-        this.voteAverage = voteAverage;
+        this.vote_average = vote_average;
     }
 
     public String getPosterPath() {
@@ -163,10 +149,10 @@ public class Movie {
     }
 
     public Double getVoteAverage() {
-        return voteAverage;
+        return vote_average;
     }
 
     public void setVoteAverage(Double voteAverage) {
-        this.voteAverage = voteAverage;
+        this.vote_average = voteAverage;
     }
 }
