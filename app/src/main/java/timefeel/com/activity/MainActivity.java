@@ -1,6 +1,5 @@
 package timefeel.com.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,30 +17,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import okhttp3.Cache;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-
-
 import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.GzipSink;
 import okio.GzipSource;
 import okio.Okio;
 import okio.Sink;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import timefeel.com.BuildConfig;
 import timefeel.com.R;
 import timefeel.com.adapter.MoviesAdapter;
+import timefeel.com.helpers.DatabaseHandler;
+import timefeel.com.model.Configuration;
+import timefeel.com.model.ImagesSize;
 import timefeel.com.model.Movie;
 import timefeel.com.model.MoviesResponse;
 import timefeel.com.rest.ServiceHelper;
+import timefeel.com.utils.UtilsTF;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String APIKEY = BuildConfig.API_KEY;
+
+    private ImagesSize mimagesize;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         .setAction("Action", null).show();
             }
         });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,45 +70,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);*/
+        ServiceHelper.GetInstance().getConfiguration(APIKEY).enqueue(new Callback<Configuration>() {
+            @Override
+            public void onResponse(Call<Configuration> call, Response<Configuration> response) {
+                 mimagesize = response.body().getImagesSize();
+                System.out.printf("----- onresponse");
+            }
 
+            @Override
+            public void onFailure(Call<Configuration> call, Throwable t) {
+                Log.d(TAG, t.getMessage());
+            }
+        });
 
-        // TEST OKIO
-        /*writeCachFile("testfile");
-        try {
-            readCachFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        // test compression
-        //zipWriteReadJakeSample();
-
-        if(APIKEY.isEmpty()){
+        if (APIKEY.isEmpty()) {
             Toast.makeText(getApplicationContext(), "APIKEY is not defined", Toast.LENGTH_SHORT).show();
         }
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.movies);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        //recyclerView.setAdapter(null);
-        // check online offline
-        // and use first level cache with retrofit
-        // second level sqlite for persistence
-        ServiceHelper.GetInstance().getTopRatedMovies(APIKEY)
-        .enqueue(new Callback<MoviesResponse>() {
+        if (UtilsTF.isNetwrkAvailable() | UtilsTF.isOnline()) {
+            ServiceHelper.GetInstance().getTopRatedMovies(APIKEY)
+                    .enqueue(new Callback<MoviesResponse>() {
+                        @Override
+                        public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
+                            int StatusCode = response.code();
+                            List<Movie> movies = response.body().getResults();
+                            recyclerView.setAdapter(new MoviesAdapter(movies, mimagesize ,R.layout.list_item_movie, getApplicationContext()));
+                        }
 
-            @Override
-            public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
-                int StatusCode = response.code();
-                List<Movie> movies = response.body().getResults();
-                recyclerView.setAdapter(new MoviesAdapter(movies, R.layout.list_item_movie, getApplicationContext()));
-                //Log.d(TAG, "Number of movies " + movies.size() + " -- " + "response Code " + StatusCode);
-            }
+                        @Override
+                        public void onFailure(Call<MoviesResponse> call, Throwable t) {
+                            Log.d(TAG, t.getMessage());
+                        }
+                    });
+        } else {
+            Log.d(TAG, "--------- Offline ----------");
+            DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+            int count = db.getMoviesCount();
+            Log.d(TAG, "Row count = " + count);
 
-            @Override
-            public void onFailure(Call<MoviesResponse> call, Throwable t) {
-                Log.d(TAG, t.getMessage());
-            }
-        });
-
+        }
     }
 
     @Override

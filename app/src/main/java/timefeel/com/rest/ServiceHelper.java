@@ -5,28 +5,24 @@ package timefeel.com.rest;
  */
 
 
-
 import android.util.Log;
-
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-
-
 import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 import timefeel.com.CustomApplication;
+import timefeel.com.model.Configuration;
 import timefeel.com.model.MoviesResponse;
 
 
@@ -66,9 +62,16 @@ public class ServiceHelper {
                 .build();
     }
 
+
+
     public Call<MoviesResponse> getTopRatedMovies(String apikey) {
         return mservice.getTopRatedMovies(apikey);
     }
+
+    public Call<Configuration> getConfiguration(String apikey) {
+        return mservice.getConfiguration(apikey);
+    }
+
 
      private class LogHeaderInterceptor implements Interceptor {
         @Override

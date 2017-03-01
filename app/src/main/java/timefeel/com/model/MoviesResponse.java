@@ -15,6 +15,10 @@ public class MoviesResponse {
     private int totalResults;
     private int totalPages;
 
+    @SuppressWarnings("moshiuse")
+    public MoviesResponse(){
+
+    }
     public int getPage() {
         return page;
     }

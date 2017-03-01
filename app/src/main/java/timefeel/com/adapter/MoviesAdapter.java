@@ -5,12 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
+import timefeel.com.CustomApplication;
 import timefeel.com.R;
+import timefeel.com.model.ImagesSize;
 import timefeel.com.model.Movie;
 
 /**
@@ -20,6 +25,7 @@ import timefeel.com.model.Movie;
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>{
 
     private List<Movie> movies;
+    private ImagesSize buildimages;
     private int rowLayout;
     private Context context;
 
@@ -31,6 +37,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView data;
         TextView movieDescription;
         TextView rating;
+        ImageView imageview;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
@@ -39,12 +46,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             data = (TextView) itemView.findViewById(R.id.subtitle);
             movieDescription = (TextView) itemView.findViewById(R.id.description);
             rating = (TextView) itemView.findViewById(R.id.rating);
+            imageview = (ImageView) itemView.findViewById(R.id.show);
 
         }
     }
 
-    public MoviesAdapter(List<Movie> movies, int rowLayout, Context context) {
+    public MoviesAdapter(List<Movie> movies, ImagesSize buildimages, int rowLayout, Context context) {
         this.movies = movies;
+        this.buildimages = buildimages;
         this.rowLayout = rowLayout;
         this.context = context;
     }
@@ -57,6 +66,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
+
+        Glide.with(CustomApplication.getAppContext())
+                .load(buildimages.getBaseurl() + buildimages.getBackdrop_sizes().get(0) + movies.get(position).getBackdropPath())
+                .into(holder.imageview);
+
         holder.movieTitle.setText(movies.get(position).getTitle());
         holder.data.setText(movies.get(position).getReleaseDate());
         holder.movieDescription.setText(movies.get(position).getOverview());

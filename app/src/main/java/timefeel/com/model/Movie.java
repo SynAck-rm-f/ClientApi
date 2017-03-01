@@ -10,79 +10,67 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
-    private String posterPath;
+    private String poster_path;
     private boolean adult;
     private String overview;
-    private String releaseDate;
-    private List<Integer> genreIds = new ArrayList<Integer>();
+    private String release_date;
+    private List<Integer> genre_ids = new ArrayList<Integer>();
     private Integer id;
-    private String originalTitle;
-    private String originalLanguage;
+    private String original_title;
+    private String original_language;
     private String title;
-    private String backdropPath;
+    private String backdrop_path;
     private Double popularity;
-    private Integer voteCount;
+    private Integer vote_count;
     private Boolean video;
     private Double vote_average;
 
-    public Movie(String posterPath, boolean adult, String overview, String releaseDate, List<Integer> genreIds, Integer id,
-                 String originalTitle, String originalLanguage, String title, String backdropPath, Double popularity,
-                 Integer voteCount, Boolean video, Double vote_average) {
-        this.posterPath = posterPath;
+    @SuppressWarnings("moshiuse")
+    public Movie(){
+
+    }
+    public Movie(String poster_path, boolean adult, String overview, String release_date, List<Integer> genre_ids, Integer id,
+                 String original_title, String original_language, String title, String backdrop_path, Double popularity,
+                 Integer vote_count, Boolean video, Double vote_average) {
+        this.poster_path = poster_path;
         this.adult = adult;
         this.overview = overview;
-        this.releaseDate = releaseDate;
-        this.genreIds = genreIds;
+        this.release_date = release_date;
+        this.genre_ids = genre_ids;
         this.id = id;
-        this.originalTitle = originalTitle;
-        this.originalLanguage = originalLanguage;
+        this.original_title = original_title;
+        this.original_language = original_language;
         this.title = title;
-        this.backdropPath = backdropPath;
+        this.backdrop_path = backdrop_path;
         this.popularity = popularity;
-        this.voteCount = voteCount;
+        this.vote_count = vote_count;
         this.video = video;
         this.vote_average = vote_average;
     }
 
     public String getPosterPath() {
-        return posterPath;
-    }
-
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
+        return poster_path;
     }
 
     public boolean isAdult() {
         return adult;
     }
 
-    public void setAdult(boolean adult) {
-        this.adult = adult;
-    }
 
     public String getOverview() {
         return overview;
     }
 
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
 
     public String getReleaseDate() {
-        return releaseDate;
+        return release_date;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
 
     public List<Integer> getGenreIds() {
-        return genreIds;
+        return genre_ids;
     }
 
-    public void setGenreIds(List<Integer> genreIds) {
-        this.genreIds = genreIds;
-    }
 
     public Integer getId() {
         return id;
@@ -93,19 +81,19 @@ public class Movie {
     }
 
     public String getOriginalTitle() {
-        return originalTitle;
+        return original_title;
     }
 
     public void setOriginalTitle(String originalTitle) {
-        this.originalTitle = originalTitle;
+        this.original_title = originalTitle;
     }
 
     public String getOriginalLanguage() {
-        return originalLanguage;
+        return original_language;
     }
 
     public void setOriginalLanguage(String originalLanguage) {
-        this.originalLanguage = originalLanguage;
+        this.original_language = originalLanguage;
     }
 
     public String getTitle() {
@@ -117,11 +105,11 @@ public class Movie {
     }
 
     public String getBackdropPath() {
-        return backdropPath;
+        return backdrop_path;
     }
 
     public void setBackdropPath(String backdropPath) {
-        this.backdropPath = backdropPath;
+        this.backdrop_path = backdropPath;
     }
 
     public Double getPopularity() {
@@ -133,11 +121,11 @@ public class Movie {
     }
 
     public Integer getVoteCount() {
-        return voteCount;
+        return vote_count;
     }
 
     public void setVoteCount(Integer voteCount) {
-        this.voteCount = voteCount;
+        this.vote_count = voteCount;
     }
 
     public Boolean getVideo() {

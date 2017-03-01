@@ -20,6 +20,12 @@
                 android:orientation="vertical"
                 android:layout_margin="7dp">
 
+                <ImageView
+                    android:id="@+id/show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center" />
+
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="match_parent"

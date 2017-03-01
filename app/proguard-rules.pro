@@ -25,3 +25,5 @@
 -keepattributes Signature
 # Retain declared checked exceptions for use by a Proxy instance.
 -keepattributes Exceptions
+# allow your module to be instantiated via reflection
+-keepnames class timefeel.com.MyGlideModule

@@ -1,9 +1,7 @@
 package timefeel.com.helpers;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
@@ -42,11 +40,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         public static final String COLUMN_NAME_VOTE_AVERAGE = "vote_average";
     }
 
-    private static final String CREATE_DATABASE = "CREATE TABLE" + TABLE_MOVIES + "("
-            + MovieContract.COLUMN_NAME_ID + "INTEGER PRIMARY KEY," + MovieContract.COLUMN_NAME_POSTER_PATH + "TEXT," + MovieContract.COLUMN_NAME_ADULT + "TEXT," + MovieContract.COLUMN_NAME_OVERVIEW + "TEXT,"
-            + MovieContract.COLUMN_NAME_RELEASE_DATE + "TEXT," + MovieContract.COLUMN_NAME_GENRE_IDS + "TEXT," + MovieContract.COLUMN_NAME_ORIGINAL_TITLE + "TEXT," + MovieContract.COLUMN_NAME_ORIGINAL_LANGUAGE + "TEXT,"
-            + MovieContract.COLUMN_NAME_TITLE + "TEXT," + MovieContract.COLUMN_NAME_BACKDROP_PATH + "TEXT," + MovieContract.COLUMN_NAME_POPULARITY + "TEXT," + MovieContract.COLUMN_NAME_VOTE_COUNT + "TEXT," + MovieContract.COLUMN_NAME_VIDEO + "TEXT,"
-            + MovieContract.COLUMN_NAME_VOTE_AVERAGE + "TEXT" + ")";
+    private static final String CREATE_DATABASE = "CREATE TABLE " + TABLE_MOVIES + "("
+            + MovieContract.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," + MovieContract.COLUMN_NAME_POSTER_PATH + " TEXT," + MovieContract.COLUMN_NAME_ADULT + " TEXT," + MovieContract.COLUMN_NAME_OVERVIEW + " TEXT,"
+            + MovieContract.COLUMN_NAME_RELEASE_DATE + " TEXT," + MovieContract.COLUMN_NAME_GENRE_IDS + " TEXT," + MovieContract.COLUMN_NAME_ORIGINAL_TITLE + " TEXT," + MovieContract.COLUMN_NAME_ORIGINAL_LANGUAGE + " TEXT,"
+            + MovieContract.COLUMN_NAME_TITLE + " TEXT," + MovieContract.COLUMN_NAME_BACKDROP_PATH + " TEXT," + MovieContract.COLUMN_NAME_POPULARITY + " TEXT," + MovieContract.COLUMN_NAME_VOTE_COUNT + " TEXT," + MovieContract.COLUMN_NAME_VIDEO + " TEXT,"
+            + MovieContract.COLUMN_NAME_VOTE_AVERAGE + " TEXT" + ")";
 
 
     public DatabaseHandler(Context context) {
@@ -101,10 +99,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_MOVIES;
         SQLiteDatabase sqLiteDatabase= this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(countQuery, null);
+        int count = cursor.getCount();
         cursor.close();
 
         // return count
-        return cursor.getCount();
+        return count;
     }
 
 }
