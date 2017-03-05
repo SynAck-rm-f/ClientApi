@@ -1,9 +1,37 @@
+# Built application files
+/*/build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle/
+
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
 *.iml
-.gradle
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
 /local.properties
+**.iml
 /.idea/workspace.xml
 /.idea/libraries
-.DS_Store
+.idea
 /build
 /captures
 .externalNativeBuild
+app/libs/

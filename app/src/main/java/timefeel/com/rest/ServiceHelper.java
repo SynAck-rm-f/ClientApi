@@ -80,11 +80,7 @@ public class ServiceHelper {
             Request request = chain.request();
 
             long t1 = System.nanoTime();
-            /** 's', 'S' => If the argument arg is null, then the result is "null". If arg implements Formattable,
-             * If the argument arg is null, then the result is "null". If arg implements Formattable,
-             * then arg.formatTo is invoked. Otherwise, the result is obtained by invoking arg.toString().
-             * 'n' The result is the platform-specific line separator
-             */
+
             request = request.newBuilder()
                     .cacheControl(new CacheControl.Builder().noCache()
                             .build()) // disable cache okhttp
