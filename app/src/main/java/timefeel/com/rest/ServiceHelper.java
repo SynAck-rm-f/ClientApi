@@ -82,8 +82,8 @@ public class ServiceHelper {
             long t1 = System.nanoTime();
 
             request = request.newBuilder()
-                    .cacheControl(new CacheControl.Builder().noCache()
-                            .build()) // disable cache okhttp
+                    /*.cacheControl(new CacheControl.Builder().noCache()
+                            .build()) // disable cache okhttp*/
                     .addHeader("appid", "hello")
                     .addHeader("deviceplatform", "android")
                     .removeHeader("User-Agent")
