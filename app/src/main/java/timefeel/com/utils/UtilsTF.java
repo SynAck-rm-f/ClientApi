@@ -3,6 +3,8 @@ package timefeel.com.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.util.Log;
 
 
 import java.io.IOException;
@@ -33,5 +35,13 @@ public class  UtilsTF {
         catch (InterruptedIOException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}
         return false;
+    }
+
+    public static String InfoSdk(){
+        String device = Build.BRAND + " " + android.os.Build.MODEL;
+        String osInt = "Android " + android.os.Build.VERSION.SDK_INT;
+        String osRelease = "Android " + Build.VERSION.RELEASE;
+        Log.e("TAG", "Device: " + device + " " + osInt + " - " + osRelease);
+        return  osInt;
     }
 }

@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.telephony.SignalStrength;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.UTFDataFormatException;
 import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,12 +37,20 @@ import timefeel.com.utils.UtilsTF;
  * Created by test on 05/03/2017.
  */
 
-public class CardMovies extends Fragment {
+public class MoviesFragment extends Fragment {
 
+    //***********************************************************************************************
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String APIKEY = BuildConfig.API_KEY;
 
+    // https://en.wikipedia.org/wiki/ISO_639-1
+    private static final String COUNTRY_ISO = "th";
+
+    //***********************************************************************************************
     private ImagesSize mimagesize;
+    private String[] mlocales = Locale.getISOCountries();
+    private String mcountry;
+    private Random mrndcountry = new Random();
 
     @Nullable
     @Override
@@ -61,13 +73,17 @@ public class CardMovies extends Fragment {
                     }
                 });
 
+    //***********************************************************************************************
         if (APIKEY.isEmpty()) {
             Toast.makeText(CustomApplication.getAppContext(), "APIKEY is not defined", Toast.LENGTH_SHORT).show();
         }
         final RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.movies);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        if (UtilsTF.isNetwrkAvailable() | UtilsTF.isOnline()) {
-            ServiceHelper.GetInstance().getTopRatedMovies(APIKEY)
+        if (UtilsTF.isNetwrkAvailable()) {
+            /** url iso 639-1 = country code for query param*/
+            //mcountry = mlocales[mrndcountry.nextInt(mlocales.length)].toLowerCase();
+            mcountry = getActivity().getIntent().getStringExtra("alpha2");
+            ServiceHelper.GetInstance().getOriginalLanguage(APIKEY,mcountry)
                     .enqueue(new Callback<MoviesResponse>() {
                         @Override
                         public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {

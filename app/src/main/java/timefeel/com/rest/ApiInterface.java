@@ -16,8 +16,8 @@ public interface ApiInterface {
     @GET("configuration")
     Call<Configuration> getConfiguration(@Query("api_key") String apiKey);
 
-    @GET("movie/top_rated")
-    Call<MoviesResponse> getTopRatedMovies(@Query("api_key") String apiKey);
+    @GET("discover/movie")
+    Call<MoviesResponse> getOriginalLanguage(@Query("api_key") String apiKey, @Query("with_original_language") String with_original_language );
 
 
 }

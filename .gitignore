@@ -8,13 +8,6 @@ local.properties
 .gradle/
 
 # User-specific configurations
-.idea/libraries/
-.idea/workspace.xml
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
 *.iml
 
 # OS-specific files
@@ -26,12 +19,30 @@ local.properties
 ehthumbs.db
 Thumbs.db
 
-/local.properties
-**.iml
-/.idea/workspace.xml
-/.idea/libraries
 .idea
 /build
 /captures
 .externalNativeBuild
 app/libs/
+/gradle.properties
+app/src/main/res/drawable/ic_flag_map_of_france.xml
+app/src/main/res/drawable/ic_flag_map_of_hong_kong.xml
+app/src/main/res/drawable/ic_flag_map_of_india.xml
+app/src/main/res/drawable/ic_flag_map_of_indonesia.xml
+app/src/main/res/drawable/ic_flag_map_of_italy.xml
+app/src/main/res/drawable/ic_flag_map_of_japan.xml
+app/src/main/res/drawable/ic_flag_map_of_malaysia.xml
+app/src/main/res/drawable/ic_flag_map_of_portugal.xml
+app/src/main/res/drawable/ic_flag_map_of_romania.xml
+app/src/main/res/drawable/ic_flag_map_of_russia_edit.xml
+app/src/main/res/drawable/ic_flag_map_of_south_korea.xml
+app/src/main/res/drawable/ic_flag_map_of_spain.xml
+app/src/main/res/drawable/ic_flag_map_of_taiwan.xml
+app/src/main/res/drawable/ic_flag_map_of_thailand.xml
+app/src/main/res/drawable/ic_flag_map_of_the_peoples_republic_of_china.xml
+app/src/main/res/drawable/ic_flag_map_of_the_philippines.xml
+app/src/main/res/drawable/ic_flag_map_of_the_united_states.xml
+app/src/main/res/drawable/ic_flag_map_of_tunisia.xml
+app/src/main/res/drawable/ic_flag_map_of_turkey.xml
+app/src/main/res/drawable/ic_flag_map_of_vietnam.xml
+app/src/main/res/drawable/ic_random_select.xml

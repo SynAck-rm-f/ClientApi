@@ -31,8 +31,8 @@ public class ServiceHelper {
     private static final String BASE_URL = "http://api.themoviedb.org/3/";
     private static final String TAG = ServiceHelper.class.getSimpleName();
 
-    private static OkHttpClient.Builder mclient = new OkHttpClient.Builder();
-    private static ServiceHelper minstance = new ServiceHelper();
+    private static OkHttpClient.Builder sclient = new OkHttpClient.Builder();
+    private static ServiceHelper sinstance = new ServiceHelper();
     private ApiInterface mservice;
 
 
@@ -42,7 +42,7 @@ public class ServiceHelper {
 
     }
     public static ServiceHelper GetInstance(){
-        return minstance;
+        return sinstance;
     }
 
     private  Retrofit createAdapter() {
@@ -51,21 +51,21 @@ public class ServiceHelper {
         File myCacheDir = new File(CustomApplication.getAppContext().getExternalCacheDir(), "OkHttpCache");
         int cacheSize = 10 * 1024 * 1024;
         Cache cacheDir = new Cache(myCacheDir, cacheSize);
-                        mclient.cache(cacheDir)
+                        sclient.cache(cacheDir)
                                 .addInterceptor(new LogHeaderInterceptor())
                                 .addNetworkInterceptor(new StethoInterceptor());
 
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .client(mclient.build())
+                .client(sclient.build())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }
 
 
 
-    public Call<MoviesResponse> getTopRatedMovies(String apikey) {
-        return mservice.getTopRatedMovies(apikey);
+    public Call<MoviesResponse> getOriginalLanguage(String apikey, String with_original_language) {
+        return mservice.getOriginalLanguage(apikey, with_original_language);
     }
 
     public Call<Configuration> getConfiguration(String apikey) {
@@ -79,8 +79,6 @@ public class ServiceHelper {
                 throws IOException {
             Request request = chain.request();
 
-            long t1 = System.nanoTime();
-
             request = request.newBuilder()
                     /*.cacheControl(new CacheControl.Builder().noCache()
                             .build()) // disable cache okhttp*/
@@ -92,7 +90,7 @@ public class ServiceHelper {
 
             Log.d(TAG, String.format("Sending request for %s on %s%n%s", request.url(), chain.connection(), request.headers()));
             Response response = chain.proceed(request);
-
+            long t1 = System.nanoTime();
 
             long t2 = System.nanoTime();
             Log.d(TAG, String.format("Received response for %s in %.1fms%n%s", response.request().url(), (t2 - t1) / 1e6d, response.headers()));
