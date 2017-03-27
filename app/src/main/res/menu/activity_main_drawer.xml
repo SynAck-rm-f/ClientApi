@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Settings" />
 
     </group>

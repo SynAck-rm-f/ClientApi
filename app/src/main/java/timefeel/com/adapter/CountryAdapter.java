@@ -7,9 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import timefeel.com.R;
 
 /**
@@ -60,7 +57,6 @@ public class CountryAdapter extends BaseAdapter {
         imageView.setTag(mlcode[position]);
         return imageView;
     }
-
     // references to our images
     //declaration, instantiation and initialization
     private Integer[] mThumbIds = {
@@ -69,23 +65,10 @@ public class CountryAdapter extends BaseAdapter {
             R.drawable.ic_flag_map_of_india,
             R.drawable.ic_flag_map_of_japan,
             R.drawable.ic_flag_map_of_the_peoples_republic_of_china,
-            //R.drawable.ic_flag_map_of_hong_kong,
             R.drawable.ic_flag_map_of_thailand,
             R.drawable.ic_flag_map_of_vietnam,
             R.drawable.ic_flag_map_of_russia_edit,
             R.drawable.ic_flag_map_of_south_korea,
-            /*R.drawable.ic_flag_map_of_tunisia,
-            R.drawable.ic_flag_map_of_italy,
-            R.drawable.ic_flag_map_of_portugal,
-            R.drawable.ic_flag_map_of_romania,
-            R.drawable.ic_flag_map_of_spain,
-            R.drawable.ic_flag_map_of_turkey,
-            R.drawable.ic_flag_map_of_indonesia,
-            R.drawable.ic_flag_map_of_malaysia,
-            R.drawable.ic_flag_map_of_the_philippines,
-            R.drawable.ic_flag_map_of_taiwan,
-            R.drawable.ic_random_select
-*/
     };
 
     private String[] mlcode = {

@@ -2,7 +2,6 @@ package timefeel.com.fragments;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 
 import timefeel.com.R;
