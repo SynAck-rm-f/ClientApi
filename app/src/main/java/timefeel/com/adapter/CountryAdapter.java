@@ -49,14 +49,14 @@ public class CountryAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(350, 350));
             imageView.setBackgroundResource(R.color.colorGreyLight);
             imageView.setPadding(8, 8, 8, 8);
-        }
-        else {
+        } else {
             imageView = (ImageView) convertView;
         }
         imageView.setImageResource(mThumbIds[position]);
         imageView.setTag(mlcode[position]);
         return imageView;
     }
+
     // references to our images
     //declaration, instantiation and initialization
     private Integer[] mThumbIds = {

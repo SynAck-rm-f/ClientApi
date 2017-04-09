@@ -73,7 +73,7 @@ public class MoviesFragment extends Fragment {
                     }
                 });
 
-    //***********************************************************************************************
+        //***********************************************************************************************
         if (APIKEY.isEmpty()) {
             Toast.makeText(CustomApplication.getAppContext(), "APIKEY is not defined", Toast.LENGTH_SHORT).show();
         }
@@ -83,13 +83,13 @@ public class MoviesFragment extends Fragment {
             /** url iso 639-1 = country code for query param*/
             //mcountry = mlocales[mrndcountry.nextInt(mlocales.length)].toLowerCase();
             mcountry = getActivity().getIntent().getStringExtra("alpha2");
-            ServiceHelper.GetInstance().getOriginalLanguage(APIKEY,mcountry)
+            ServiceHelper.GetInstance().getOriginalLanguage(APIKEY, mcountry)
                     .enqueue(new Callback<MoviesResponse>() {
                         @Override
                         public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
                             int StatusCode = response.code();
                             List<Movie> movies = response.body().getResults();
-                            recyclerView.setAdapter(new MoviesAdapter(movies, mimagesize, R.layout.list_item_movie, getActivity().getApplicationContext()));
+                            recyclerView.setAdapter(new MoviesAdapter(movies, mimagesize, R.layout.list_item_movie, CustomApplication.getAppContext()));
                         }
 
                         @Override

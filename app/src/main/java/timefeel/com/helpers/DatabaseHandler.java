@@ -23,7 +23,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABSE_NAME = "Movies.db";
     private static final String TABLE_MOVIES = "movies";
 
-    public final class MovieContract implements BaseColumns{
+    public final class MovieContract implements BaseColumns {
         public static final String COLUMN_NAME_ID = "id";
         public static final String COLUMN_NAME_POSTER_PATH = "poster_path";
         public static final String COLUMN_NAME_ADULT = "adult";
@@ -74,7 +74,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT" + MovieContract.COLUMN_NAME_TITLE + "FROM" + TABLE_MOVIES + " WHERE id > ?", new String[]{id});
         List itemIds = new ArrayList<>();
-        while(cursor.moveToNext()) {
+        while (cursor.moveToNext()) {
             long itemId = cursor.getLong(
                     cursor.getColumnIndexOrThrow(MovieContract._ID));
             itemIds.add(itemId);
@@ -84,7 +84,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // Getting All movies
-    public List<Movie> getAllMovies(){
+    public List<Movie> getAllMovies() {
         List<Movie> moviesList = new ArrayList<Movie>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_MOVIES;
@@ -97,7 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Getting movies Count
     public int getMoviesCount() {
         String countQuery = "SELECT  * FROM " + TABLE_MOVIES;
-        SQLiteDatabase sqLiteDatabase= this.getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(countQuery, null);
         int count = cursor.getCount();
         cursor.close();

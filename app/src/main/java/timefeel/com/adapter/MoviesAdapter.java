@@ -22,14 +22,14 @@ import timefeel.com.model.Movie;
  * Created by test on 10/02/2017.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>{
+public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
 
     private List<Movie> movies;
     private ImagesSize buildimages;
     private int rowLayout;
     private Context context;
 
-    public static class MovieViewHolder extends RecyclerView.ViewHolder{
+    public static class MovieViewHolder extends RecyclerView.ViewHolder {
 
 
         LinearLayout moviesLayout;
@@ -41,12 +41,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            moviesLayout = (LinearLayout)  itemView.findViewById(R.id.movies_layout);
+            moviesLayout = (LinearLayout) itemView.findViewById(R.id.movies_layout);
             movieTitle = (TextView) itemView.findViewById(R.id.title);
             data = (TextView) itemView.findViewById(R.id.subtitle);
             movieDescription = (TextView) itemView.findViewById(R.id.description);
             rating = (TextView) itemView.findViewById(R.id.rating);
-            imageview = (ImageView) itemView.findViewById(R.id.show);
+            imageview = (ImageView) itemView.findViewById(R.id.imagemovie);
 
         }
     }

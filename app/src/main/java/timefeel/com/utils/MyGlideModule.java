@@ -14,7 +14,8 @@ import com.bumptech.glide.module.GlideModule;
 
 public class MyGlideModule implements GlideModule {
 
-    @Override public void applyOptions(Context context, GlideBuilder builder) {
+    @Override
+    public void applyOptions(Context context, GlideBuilder builder) {
         // Apply options to the builder here.
         builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);
     }

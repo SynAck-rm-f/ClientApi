@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +40,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
             VectorDrawableCompat indicator = VectorDrawableCompat.create(getResources(), R.drawable.ic_menu_24dp, getTheme());
-            indicator.setTint(ResourcesCompat.getColor(getResources(),R.color.colorWhite,getTheme()));
+            indicator.setTint(ResourcesCompat.getColor(getResources(), R.color.colorWhite, getTheme()));
             supportActionBar.setHomeAsUpIndicator(indicator);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
         // Create Navigation drawer and inflate layout
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // Adding main content , MoviesFragment retrieve bundle extra from SelectActivity for building Request API
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * Open Navigation Drawer is icon menu(=) is pressed
-     * */
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * Close Navigation Drawer if back button is pressed
-     * */
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     /**
      * This method will trigger on item Click of navigation menu
-     * */
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

@@ -29,10 +29,10 @@ public class SelectActivity extends AppCompatActivity {
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                String tag =  (String) v.getTag();
-                Toast.makeText(getApplicationContext() ,"" + position + tag, Toast.LENGTH_SHORT).show();
+                String tag = (String) v.getTag();
+                Toast.makeText(getApplicationContext(), "" + position + tag, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("alpha2",tag);
+                intent.putExtra("alpha2", tag);
                 startActivity(intent);
                 finish();
             }

@@ -11,7 +11,7 @@ import com.bumptech.glide.load.model.stream.BaseGlideUrlLoader;
 public interface MyDataSizeModel {
     public String buildUrl(int width, int height);
 
-    public class MyUrlLoader extends BaseGlideUrlLoader<MyDataSizeModel>{
+    public class MyUrlLoader extends BaseGlideUrlLoader<MyDataSizeModel> {
 
         public MyUrlLoader(Context context) {
             super(context);

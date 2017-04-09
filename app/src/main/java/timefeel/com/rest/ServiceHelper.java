@@ -35,24 +35,25 @@ public class ServiceHelper {
     private ApiInterface mservice;
 
 
-    private ServiceHelper(){
+    private ServiceHelper() {
         Retrofit retrofit = createAdapter();
         mservice = retrofit.create(ApiInterface.class);
 
     }
-    public static ServiceHelper GetInstance(){
+
+    public static ServiceHelper GetInstance() {
         return sinstance;
     }
 
-    private  Retrofit createAdapter() {
+    private Retrofit createAdapter() {
         /** this path lives in their private storage
          * these files will be deleted when the application is uninstalled*/
         File myCacheDir = new File(CustomApplication.getAppContext().getExternalCacheDir(), "OkHttpCache");
         int cacheSize = 10 * 1024 * 1024;
         Cache cacheDir = new Cache(myCacheDir, cacheSize);
-                        sclient.cache(cacheDir)
-                                .addInterceptor(new LogHeaderInterceptor())
-                                .addNetworkInterceptor(new StethoInterceptor());
+        sclient.cache(cacheDir)
+                .addInterceptor(new LogHeaderInterceptor())
+                .addNetworkInterceptor(new StethoInterceptor());
 
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -60,7 +61,6 @@ public class ServiceHelper {
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }
-
 
 
     public Call<MoviesResponse> getOriginalLanguage(String apikey, String with_original_language) {
@@ -72,7 +72,7 @@ public class ServiceHelper {
     }
 
 
-     private class LogHeaderInterceptor implements Interceptor {
+    private class LogHeaderInterceptor implements Interceptor {
         @Override
         public Response intercept(Chain chain)
                 throws IOException {
