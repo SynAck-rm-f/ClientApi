@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "timefeel.com"
+        applicationId "com.timefeel.rxmovies"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
@@ -15,9 +15,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            debuggable true
         }
     }
 }
@@ -34,6 +31,24 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:design:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:cardview-v7:25.3.0'
+
+    // Dagger dependencies
+    // apt command comes from the android-apt plugin
+    compile "com.google.dagger:dagger:2.9"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.9"
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    // Butterknife dependencies
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    // 4dp line alignment
+    //compile 'com.actinarium.aligned:aligned:0.1'
+
+    // Toolbar alignment
+    //compile 'com.lucasurbas:guidelinescompattoolbar:1.0.0'
 
     // Retrofit, Okio, Okhttp,
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -42,12 +57,12 @@ dependencies {
     // Glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
 
-    // Recycler view
-    compile 'com.android.support:recyclerview-v7:25.3.0'
-    compile 'com.android.support:cardview-v7:25.3.0'
-    testCompile 'junit:junit:4.12'
-
     // stetho
     compile 'com.facebook.stetho:stetho:1.4.2'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+
+
+    testCompile 'junit:junit:4.12'
+
+
 }

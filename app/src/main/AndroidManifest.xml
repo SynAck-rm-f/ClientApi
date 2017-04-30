@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="timefeel.com">
+    package="com.timefeel.rxmovies">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".CustomApplication"
+        android:resizeableActivity="true"
+        android:name=".app.CustomApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDesign">
         <meta-data
-            android:name="timefeel.com.utils.MyGlideModule"
-            android:value="GlideModule" />
+            android:name="com.timefeel.rxmovies.utils.MyGlideModule"
+            android:value="GlideModule"
+            />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1"/>
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
