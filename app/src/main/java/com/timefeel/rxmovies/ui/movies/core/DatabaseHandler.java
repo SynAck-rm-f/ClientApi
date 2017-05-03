@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.helpers;
+package com.timefeel.rxmovies.ui.movies.core;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.timefeel.rxmovies.model.Movie;
+import com.timefeel.rxmovies.models.Movie;
 
 
 /**

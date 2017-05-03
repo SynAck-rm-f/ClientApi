@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.adapter;
+package com.timefeel.rxmovies.ui.movies.core;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +15,8 @@ import java.util.List;
 
 import com.timefeel.rxmovies.app.CustomApplication;
 import com.timefeel.rxmovies.R;
-import com.timefeel.rxmovies.model.ImagesSize;
-import com.timefeel.rxmovies.model.Movie;
+import com.timefeel.rxmovies.models.ImagesSize;
+import com.timefeel.rxmovies.models.Movie;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

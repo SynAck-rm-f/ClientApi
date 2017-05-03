@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.model;
+package com.timefeel.rxmovies.models;
 
 /**
  * Created by test on 08/01/2017.

@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.fragments;
+package com.timefeel.rxmovies.ui.settings;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;

@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.fragments;
+package com.timefeel.rxmovies.ui.movies;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -25,13 +25,13 @@ import retrofit2.Response;
 import com.timefeel.rxmovies.BuildConfig;
 import com.timefeel.rxmovies.R;
 import com.timefeel.rxmovies.activity.MainActivity;
-import com.timefeel.rxmovies.adapter.MoviesAdapter;
-import com.timefeel.rxmovies.helpers.DatabaseHandler;
-import com.timefeel.rxmovies.model.Configuration;
-import com.timefeel.rxmovies.model.ImagesSize;
-import com.timefeel.rxmovies.model.Movie;
-import com.timefeel.rxmovies.model.MoviesResponse;
-import com.timefeel.rxmovies.rest.ServiceHelper;
+import com.timefeel.rxmovies.ui.movies.core.MoviesAdapter;
+import com.timefeel.rxmovies.ui.movies.core.DatabaseHandler;
+import com.timefeel.rxmovies.models.Configuration;
+import com.timefeel.rxmovies.models.ImagesSize;
+import com.timefeel.rxmovies.models.Movie;
+import com.timefeel.rxmovies.models.MoviesResponse;
+import com.timefeel.rxmovies.app.builder.ServiceHelper;
 import com.timefeel.rxmovies.utils.UtilsTF;
 
 /**
@@ -84,7 +84,7 @@ public class MoviesFragment extends Fragment {
             Toast.makeText(CustomApplication.getAppContext(), "APIKEY is not defined", Toast.LENGTH_SHORT).show();
         }
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        if (UtilsTF.isNetwrkAvailable()) {
+
             /** url iso 639-1 = country code for query param*/
             //mcountry = mlocales[mrndcountry.nextInt(mlocales.length)].toLowerCase();
             mcountry = getActivity().getIntent().getStringExtra("alpha2");
@@ -102,13 +102,13 @@ public class MoviesFragment extends Fragment {
                             Log.d(TAG, t.getMessage());
                         }
                     });
-        } else {
+         /*else {
             Log.d(TAG, "--------- Offline ----------");
             DatabaseHandler db = new DatabaseHandler(getActivity().getApplicationContext());
             int count = db.getMoviesCount();
             Log.d(TAG, "Row count = " + count);
 
-        }
+        }*/
 
         return rootView;
     }

@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.adapter;
+package com.timefeel.rxmovies.ui.select.core;
 
 import android.content.Context;
 import android.view.View;

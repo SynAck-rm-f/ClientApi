@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.model;
+package com.timefeel.rxmovies.models;
 
 import java.util.List;
 

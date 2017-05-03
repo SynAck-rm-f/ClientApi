@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.activity;
+package com.timefeel.rxmovies.ui.select;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.timefeel.rxmovies.R;
-import com.timefeel.rxmovies.adapter.CountryAdapter;
+import com.timefeel.rxmovies.activity.MainActivity;
+import com.timefeel.rxmovies.ui.select.core.CountryAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

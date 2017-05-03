@@ -12,6 +12,8 @@ import com.timefeel.rxmovies.app.CustomApplication;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 
+import rx.Observable;
+
 /**
  * Created by test on 27/02/2017.
  */
@@ -22,10 +24,15 @@ public class UtilsTF {
 
     }
 
-    public static Boolean isNetwrkAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) CustomApplication.getAppContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = cm.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    private static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
+    public static Observable<Boolean> isNetworkAvailableObservable(Context context) {
+        return Observable.just(UtilsTF.isNetworkAvailable(context));
     }
 
     public static Boolean isOnline() {

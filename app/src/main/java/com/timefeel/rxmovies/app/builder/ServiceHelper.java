@@ -1,4 +1,4 @@
-package com.timefeel.rxmovies.rest;
+package com.timefeel.rxmovies.app.builder;
 
 /**
  * Created by test on 08/01/2017.
@@ -20,9 +20,11 @@ import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
+
+import com.timefeel.rxmovies.api.ApiInterface;
 import com.timefeel.rxmovies.app.CustomApplication;
-import com.timefeel.rxmovies.model.Configuration;
-import com.timefeel.rxmovies.model.MoviesResponse;
+import com.timefeel.rxmovies.models.Configuration;
+import com.timefeel.rxmovies.models.MoviesResponse;
 
 
 public class ServiceHelper {
@@ -32,7 +34,7 @@ public class ServiceHelper {
 
     private static OkHttpClient.Builder sclient = new OkHttpClient.Builder();
     private static ServiceHelper sinstance = new ServiceHelper();
-    private  ApiInterface mservice;
+    private ApiInterface mservice;
 
 
     private ServiceHelper() {

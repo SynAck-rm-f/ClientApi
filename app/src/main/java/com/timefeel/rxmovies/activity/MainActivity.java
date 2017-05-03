@@ -14,8 +14,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.timefeel.rxmovies.R;
-import com.timefeel.rxmovies.fragments.MoviesFragment;
-import com.timefeel.rxmovies.fragments.SettingsFragment;
+import com.timefeel.rxmovies.ui.movies.MoviesFragment;
+import com.timefeel.rxmovies.ui.settings.SettingsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
