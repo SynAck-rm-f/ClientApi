@@ -2,21 +2,16 @@ package com.timefeel.rxmovies.app;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.res.Configuration;
 
 import com.facebook.stetho.Stetho;
-import com.timefeel.rxmovies.app.builder.AppComponent;
-import com.timefeel.rxmovies.app.builder.AppContextModule;
-import com.timefeel.rxmovies.app.builder.DaggerAppComponent;
-
-
-import dagger.internal.DaggerCollections;
+import com.timefeel.rxmovies.injection.app.ApplicationComponent;
+import com.timefeel.rxmovies.injection.app.ApplicationModule;
+import com.timefeel.rxmovies.injection.app.DaggerApplicationComponent;
 
 
 public class CustomApplication extends Application {
 
-    private static Context mcontext;
-    private static AppComponent appComponent;
+    private static ApplicationComponent applicationComponent;
     /**
      * Called when the application is starting, before any other application objects have been created.
      * Overriding this method is totally optional!
@@ -25,40 +20,11 @@ public class CustomApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
-        CustomApplication.mcontext = getApplicationContext();
-        initAppComponent();
-
+        applicationComponent = DaggerApplicationComponent.builder().applicationModule(new ApplicationModule(this)).build();
     }
 
-    /**
-     * pass Context Application with construct of AppContextModule
-     * and ready to inject dependency modules to (Application extends CustomApplication(Singleton Android))
-     * **/
-    private void initAppComponent(){
-        appComponent = DaggerAppComponent.builder().appContextModule(new AppContextModule(this)).build();
-    }
-    /**
-     * @return getApplicationContext()
-     */
-    public static Context getAppContext() {
-        return mcontext;
+    public static ApplicationComponent getAppComponent(Context context) {
+        return ((CustomApplication) context.getApplicationContext()).applicationComponent;
     }
 
-    /**
-     * Called by the system when the device configuration changes while your component is running.
-     * Overriding this method is totally optional!
-     * */
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-    /**
-     * This is called when the overall system is running low on memory,
-     * and would like actively running processes to tighten their belts.
-     * Overriding this method is totally optional!
-     */
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-    }
 }

@@ -14,19 +14,17 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.timefeel.rxmovies.R;
-import com.timefeel.rxmovies.ui.movies.MoviesFragment;
 import com.timefeel.rxmovies.ui.settings.SettingsFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/*
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.toolbar_title) TextView mTitle;
-    @BindView(R.id.nav_view) NavigationView mNavigationView;
-    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +51,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getFragmentManager().beginTransaction().replace(R.id.content, new MoviesFragment()).commit();
     }
 
-    /**
+    */
+/**
      * Open Navigation Drawer is icon menu(=) is pressed
-     */
+     *//*
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -72,9 +72,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    /**
+    */
+/**
      * Close Navigation Drawer if back button is pressed
-     */
+     *//*
+
     @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -84,9 +86,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    /**
+    */
+/**
      * This method will trigger on item Click of navigation menu
-     */
+     *//*
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -110,3 +114,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 }
+*/

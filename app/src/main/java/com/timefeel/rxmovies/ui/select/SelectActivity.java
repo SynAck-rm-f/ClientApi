@@ -10,7 +10,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.timefeel.rxmovies.R;
-import com.timefeel.rxmovies.activity.MainActivity;
 import com.timefeel.rxmovies.ui.select.core.CountryAdapter;
 
 import butterknife.BindView;
@@ -20,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by test on 08/03/2017.
  */
 
-public class SelectActivity extends AppCompatActivity {
+/*public class SelectActivity extends AppCompatActivity {
 
     @BindView(R.id.gridview) GridView gridview;
     @Override
@@ -42,4 +41,4 @@ public class SelectActivity extends AppCompatActivity {
             }
         });
     }
-}
+}*/

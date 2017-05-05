@@ -47,7 +47,6 @@ public class CountryAdapter extends BaseAdapter {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mcontext);
             imageView.setLayoutParams(new GridView.LayoutParams(350, 350));
-            imageView.setBackgroundResource(R.color.colorGreyLight);
             imageView.setPadding(8, 8, 8, 8);
         } else {
             imageView = (ImageView) convertView;
