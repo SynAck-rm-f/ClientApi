@@ -10,7 +10,7 @@ Application for discovery other country Movies.
 
 <div style="text-align: center"><table><tr>
   
-   <td style="text-align: center;margin-top: 10px">
+   <td style="text-align: center;margin-top: 50px">
     <img width="180" alt="" src="https://github.com/SynAck-rm-f/ClientApi/blob/master/images/Screenshot_2022-08-21-06-19-42-72_92812990320c46b962307bc583f1999e.jpg">
   </td>
   
