@@ -1,11 +1,11 @@
 <h1>RxMovies</h1>
-Application for discovery other country
-list random film with random country based on custom choice is the begin.
+Application for discovery other country Movies.
 <br/><br/>
 
 - Dagger :  injection.
 - ButterKnife:  injection views only.
 - Retrofit: HTTP API into a Java interface.
+- Rating : AlloCiné, iMDb, TMdB
 
 
 <div style="text-align: center"><table><tr>
