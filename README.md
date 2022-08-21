@@ -7,6 +7,6 @@ list random film with random country based on custom choice is the begin.
 
 <img
   src="https://github.com/SynAck-rm-f/ClientApi/blob/master/images/Screenshot_2022-08-21-06-19-42-72_92812990320c46b962307bc583f1999e.jpg"
-  alt="Alt text"
+  alt="Screeshot"
   title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 100px">
+  style="max-width: 100px">
