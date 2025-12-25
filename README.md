@@ -1,11 +1,16 @@
-<h1>RxMovies</h1>
-Application for discovery other country Movies.
-<br/><br/>
+RxMovies
 
-- Dagger :  injection.
-- ButterKnife:  injection views only.
-- Retrofit: HTTP API into a Java interface.
-- Rating : AlloCiné, iMDb, TMdB
+Android learning project built to practice Java application architecture
+and common design patterns.
+
+This project focuses on:
+- Dependency Injection (Dagger)
+- View binding (ButterKnife)
+- REST API consumption (Retrofit)
+- Reactive programming basics
+
+This is an educational project, not a production application.
+
 
 
 <table>
